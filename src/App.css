@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default;
+    user-select: none;
+}
+
+body {
+    background-color: #D9DAE0;
+    color: #111111;
+    text-align: center;
+}
+
+hr {
+    margin: auto !important;
+    width: 70%;
+    height: 3px;
+    color: black;
+    background-color: black;
+}
+
+div#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#root > * {
+    margin: 2rem;
+}
+
+div.heading > * {
+    margin: 0.5rem;
+}
+
+div.heading h1 {
+    font-size: 3rem;
+}
+
+div.heading p {
+    font-size: 1.5rem;
+}
+
+div.photos {
+    display: grid;
+    width: 70vw;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+
+div.photo {
+    height: calc(0.3 * 70vw);
+    margin: 1rem 0;
+    background-size: cover;
+    background-position: center;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+div.photo:hover {
+    opacity: 0.8;
+}
+
+div.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button.upload-button {
+    border: none;
+    padding: 0.5rem 1.5rem 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    background-color: #0067ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+button.upload-button:hover {
+    background-color: #1c6add;
+}
+
+button.upload-button > * {
+    margin: 0.5rem 0.5rem;
+}
+
+div.image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(128, 128, 128, 0.855);
+}
+
+div.image-viewer div.prev, div.image-viewer div.next {
+    cursor: default;
+    user-select: none;
+}
+
+div.image-viewer div.prev:hover, div.image-viewer div.next:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+div.image-viewer div.prev:active, div.image-viewer div.next:active  {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.image-viewer div.up {
+    /* background-color: white; */
+    color: white;
+    /* text-shadow: 0 0 50px 5px black; */
+    background-color: rgba(0, 0, 0, 0.664);
+    padding: 1rem;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.image-viewer div.up h3 {
+    width: inherit;
+}
+
+div.image-viewer div.up div.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: right;
+    width: min-content;
+}
+
+div.image-viewer div.up div.options div {
+    margin: 0.1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+div.image-viewer div.up div.options div:hover {
+    background-color: #111111;
+}
+
+div.image-viewer div.up div.options div svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+div.image-viewer div.down {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 3rem;
+    width: 100%;
+}
+
+div.image-viewer div.image img {
+    width: 85vw;
+    height: 85vh;
+    object-fit: scale-down;
+}
+
+div.image-viewer div.image {
+    background-color: rgba(128, 128, 128, 0.829);
+}
+
+div.image-viewer div.prev, div.image-viewer div.next {
+    margin: 0;
+    padding: 0.5rem 1rem 1rem 1rem;
+    border: 1px solid black;
+}
+
+div.photo {
+    position: relative;
+}
+
+div.n-selected div.photo {
+    opacity: 0.4;
+}
+
+div.photo div.select {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 5%;
+    right: 5%;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: #111111;
+}
+
+div.photo svg {
+    width: 100%;
+    height: 100%;
+    color: #D9DAE0;
+    border-radius: 50%;
+}
+
+div.photos div.selected {
+    opacity: 0.9;
+}
+
+div.photos div.selected svg {
+    background-color: white;
+    color: black
+}
+
+div.options-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 3rem;
+    background-color: lightblue;
+    width: 100vw;
+    top: 0;
+    margin: 0 !important;
+    z-index: 1;
+}
+
+div.selected-nav {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    font-size: 120%;
+}
+
+div.cross {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.6rem;
+    border-radius: 15%;
+}
+
+div.cross:hover {
+    background-color: rgba(128, 128, 128, 0.6);
+}
+
+div.cross svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+div.options-selected div.buttons {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+}
+
+div.options-selected div.buttons svg {
+    width: 1em;
+    height: 1em;
+    margin: 0.5rem;
+}
+
+div.options-selected button.select-all {
+    background-color: transparent;
+    border: 2px solid darkblue;
+    padding: 0.3rem 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+}
+
+div.options-selected button.select-all:hover {
+    background-color: rgba(0, 0, 139, 0.2);
+}
